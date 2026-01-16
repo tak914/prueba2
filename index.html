@@ -1,8 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enviar Hola</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #f8f9fa;
+      font-family: system-ui, sans-serif;
+    }
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      background: #198754;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    button:hover {
+      background: #157347;
+    }
+  </style>
+</head>
 <body>
-  <button onclick='fetch("https://script.google.com/macros/s/AKfycbyQFvECU1AhVeCo8ECof_mOT4qf0WBAPMk5UkSppy5vEc-NzBdYKQNs0SNUneiuGJuD0g/exec"})'>
-    Enviar Hola
-  </button>
+  <button id="sendBtn">✉️ Enviar "Hola" a mi correo</button>
+
+  <script>
+    document.getElementById('sendBtn').addEventListener('click', async () => {
+      const url = 'https://script.google.com/macros/s/AKfycbwELaboR26JoliiKj71k0Jt2UUpgByW_beKDqINrA3Q1UTBUUmThuch_0s5GwmWLD7dsA/exec';
+
+      try {
+        // Enviamos la solicitud POST
+        await fetch(url, {
+          method: 'POST',
+          mode: 'no-cors' // Necesario para Web Apps públicas
+        });
+        alert('¡Correo enviado! Revisa tu bandeja (incluyendo spam).');
+      } catch (error) {
+        alert('⚠️ Error al conectar. Verifica tu conexión.');
+        console.error('Error:', error);
+      }
+    });
+  </script>
 </body>
 </html>
