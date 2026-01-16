@@ -5,25 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Registrar Hola</title>
 </head>
-<body style="display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;background:#f0f2f5;">
-  <button id="sendBtn" style="padding:14px 28px;font-size:18px;background:#1a73e8;color:white;border:none;border-radius:8px;cursor:pointer;">
-    ✉️ Registrar "Hola"
+<body style="display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;background:#f8f9fa;">
+  <button id="sendBtn" style="padding:14px 28px;font-size:18px;background:#198754;color:white;border:none;border-radius:8px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+    📝 Registrar "Hola"
   </button>
 
   <script>
     document.getElementById('sendBtn').addEventListener('click', () => {
-      // ⬇️ PEGA AQUÍ LA NUEVA URL DE TU WEB APP
-      const url = 'https://script.google.com/macros/s/AKfycbw22b6i0T-cbqIiKq45FBYgPoj4ayOcZyR8Qw2wDCkzubFd1jnqLXcFR9KLUA9bJXc4EQ/exec';
+      const url = 'https://script.google.com/macros/s/AKfycbzcUEXMwxGnD4D8d-tbQPitd8Qr4R12nnEsJpHBN674ZpEKsyGyGOfN155zpDpWTlmGRg/exec';
 
       const btn = document.getElementById('sendBtn');
-      btn.textContent = 'Registrando...';
+      btn.textContent = 'Enviando...';
       btn.disabled = true;
 
       fetch(url, { method: 'POST', mode: 'no-cors' })
         .then(() => {
-          btn.textContent = '¡Registrado!';
+          btn.textContent = '¡Listo!';
           setTimeout(() => {
-            btn.textContent = '✉️ Registrar "Hola"';
+            btn.textContent = '📝 Registrar "Hola"';
             btn.disabled = false;
           }, 2000);
         })
@@ -31,7 +30,7 @@
           btn.textContent = '❌ Error';
           console.error('Error:', err);
           setTimeout(() => {
-            btn.textContent = '✉️ Registrar "Hola"';
+            btn.textContent = '📝 Registrar "Hola"';
             btn.disabled = false;
           }, 2000);
         });
